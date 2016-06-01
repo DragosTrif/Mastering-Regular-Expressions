@@ -16,7 +16,7 @@ if( $input =~ m/^([-+]?[0-9]+(\.[0-9]*)?)\s*([CF])$/i)
 	my $input_number = $1; #retreving values 
 	my $input_type   = $3; #because we used () for grouping  $input_type  it's hold in $3 not $2
 
-	if( $input_type eq "C"){
+	if( $input_type eq "C" or $input_type eq "c"){
 		# The input was Celsius, so calculate Fahrenheit
 		my $celsius = $input_number;
 		my $fahrenheit = ($celsius * 9 / 5) + 32;
