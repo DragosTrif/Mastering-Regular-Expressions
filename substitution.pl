@@ -2,7 +2,7 @@
 use strict;
 use warnings;
 
-# this a heredoc
+# this is a heredoc
 my $text =<<'END_TEXT';  
 
 Dear <FIRST>,
