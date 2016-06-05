@@ -15,7 +15,7 @@ print $text;
  
  	print $text;
 
- $text =~ s/\bJeff(?='s\b)/drd/g; #notice that the lookaheah anchor dosent consume the text
+ $text =~ s/\bJeff(?='s\b)/drd/g; #notice that the lookahead anchor dosent consume the text
                                   # it just replaces the leters before 's;
 
  print $text;	
