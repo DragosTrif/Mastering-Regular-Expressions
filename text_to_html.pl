@@ -26,4 +26,24 @@ $text =~ s/ˆ'\s*$/<p>/mg; # Separate paragraphs.
 # Turn email addresses into links . . .
 $text =~ s{\b(\w[-.\w]*\@[-a-z0-9]+(\.[-a-z0-9]+)*\.(com|edu|info))\b}{<a href="mailto:$1">$1</a>}gix;
 
+#“Linkizing” an HTTP URL
+#$text =~ s{\b(http://[-a-z0-9]+(\.[-a-z0-9]+)*\.(com|edu|info)\b(/ [-a-z0-9R:\@&?=+,.!/ ~+’%\$]*)(?<![.,?!])?)}{<a href="$1">$1</a>}gix;
+	 
+$text =~ s{
+\b
+# Captur e the URL to $1 . . .
+(
+http:// [-a-z0-9]+(\.[-a-z0-9]+)*\.(com|edu|info) \b
+# hostname
+(
+/ [-a-z0-9R:\@&?=+,.!/ ~+’%\$]* # Optional path
+(?<![.,?!])
+# Not allowed to end with [.,?!]
+)?
+)
+}{<a href="$1">$1</a>}gix;	
+	
+
+		
+
 print $text;
